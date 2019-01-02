@@ -1,5 +1,6 @@
 import Algorithmia
 import pickle
+from sklearn.ensemble import RandomForestClassifier
 #import numpy as np
 
 client = Algorithmia.client()
@@ -14,6 +15,7 @@ def load_model(file_path):
         model = pickle.load(f)
         return model
 
+# Load model outside of the apply function so it only gets loaded once
 file_path = "data://christophostertag/models/iris_rfc.pkl"
 model = load_model(file_path)
 
