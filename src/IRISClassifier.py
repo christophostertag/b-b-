@@ -13,7 +13,7 @@ model = pickle.load(open(client.file(file_path).getFile().name,"rb"))
 def apply(input):
   #try:
   X = np.array(input).reshape(-1,4)
-  pred = str(model.predict(X))
+  pred = model.predict(X)
   return pred
   #except:
   return "wrong input"
