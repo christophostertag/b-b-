@@ -1,23 +1,14 @@
 import Algorithmia
 import pickle
-from sklearn.ensemble import RandomForestClassifier
 #import numpy as np
 
 client = Algorithmia.client()
 
 #load model into memory
-def load_model(file_path):
-    # Get file by name
-    # Open file and load model
-    model_path = client.file(file_path).getFile().name
-    # Open file and load model
-    with open(model_path, 'rb') as f:
-        model = pickle.load(f)
-        return model
-
-# Load model outside of the apply function so it only gets loaded once
 file_path = "data://christophostertag/models/iris_rfc.pkl"
-model = load_model(file_path)
+f = open(client.file(file_path).getFile().name,"rb")
+model = pickle.load(f)
+f.close()
 
 # API calls will begin at the apply() method, with the request body passed as 'input'
 # For more details, see algorithmia.com/developers/algorithm-development/languages
