@@ -1,6 +1,6 @@
 import Algorithmia
 import pickle
-import numpy as np
+#import numpy as np
 
 client = Algorithmia.client()
 
