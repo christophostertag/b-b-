@@ -13,7 +13,7 @@ model = pickle.load(open(client.file(file_path).getFile().name,"rb"))
 def apply(input):
   try:
     X = np.asarray(input).reshape(-1,4)
+    pred = str(model.predict(X)[0])
+    return pred
   except:
     return "wrong input"
-  pred = str(model.predict(X)[0])
-  return pred
