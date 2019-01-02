@@ -12,7 +12,7 @@ model = pickle.load(open(client.file(file_path).getFile().name,"rb"))
 # For more details, see algorithmia.com/developers/algorithm-development/languages
 def apply(input):
   try:
-    X = np.array(input).reshape(-1,4)
+    X = np.asarray(input).reshape(-1,4)
   except:
     return "wrong input"
   pred = str(model.predict(X)[0])
