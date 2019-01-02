@@ -1,5 +1,6 @@
 import Algorithmia
 import pickle
+import numpy as np
 
 client = Algorithmia.client()
 
@@ -10,5 +11,6 @@ model = pickle.load(open(client.file(file_path).getFile().name,"rb"))
 # API calls will begin at the apply() method, with the request body passed as 'input'
 # For more details, see algorithmia.com/developers/algorithm-development/languages
 def apply(input):
-  pred = model.predict(input)
-  return pred
+  X = np.array(input)
+  #pred = model.predict(input)
+  return X
