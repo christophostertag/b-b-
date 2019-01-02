@@ -12,5 +12,5 @@ model = pickle.load(open(client.file(file_path).getFile().name,"rb"))
 # For more details, see algorithmia.com/developers/algorithm-development/languages
 def apply(input):
   X = np.array(input)
-  pred = model.predict(X)[0]
+  pred = str(model.predict(X)[0])
   return pred
